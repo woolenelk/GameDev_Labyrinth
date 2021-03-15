@@ -5,6 +5,8 @@ using UnityEngine;
 public class FloorManager : MonoBehaviour
 {
     [SerializeField]
+    GameObject Enemy;
+    [SerializeField]
     FloorPatterns[] FloorPlan;
     [SerializeField]
     List<FloorInfo> blocks;
@@ -36,8 +38,10 @@ public class FloorManager : MonoBehaviour
         {
             if (i == playerSpawn)
                 player.transform.position = SpawnPointsAvail[playerSpawn].position;
-
             //otherwise Spawn enemy at other spawn points;
+            else
+                Instantiate(Enemy, SpawnPointsAvail[i]);
+
         }
     }
 

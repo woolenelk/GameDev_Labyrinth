@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d31a3aa7aeab04c83ec65b4ad993a8, type: 3}
   m_Name: RewardList
   m_EditorClassIdentifier: 
-  rewardList: []
+  rewardList:
+  - {fileID: 11400000, guid: 493cfff1cd16fc0418828b939d12779d, type: 2}
+  - {fileID: 11400000, guid: 7ab16000bacd64041969c879e370d2d3, type: 2}
