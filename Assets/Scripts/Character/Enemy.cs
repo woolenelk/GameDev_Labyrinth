@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
         timer += Time.deltaTime;
         if (player != null)
         {
+            agent.SetDestination(player.transform.position);
             Debug.Log("Shoot player here");
             // see player
         }
