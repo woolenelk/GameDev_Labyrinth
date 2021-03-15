@@ -12,6 +12,8 @@ public class FloorManager : MonoBehaviour
     GameObject player;
     [SerializeField]
     int planNum = 0;
+    [SerializeField]
+    public List<Transform> SpawnPointsAvail = new List<Transform>();
 
     private void Awake()
     {
@@ -24,13 +26,19 @@ public class FloorManager : MonoBehaviour
         {
             if (FloorPlan[planNum].inUse[block])
             {
-                player.transform.position = blocks[block].spawn.position;
+                SpawnPointsAvail.Add(blocks[block].spawn);
             }
             blocks[block].SetInUse(FloorPlan[planNum].inUse[block]);
             
         }
+        int playerSpawn = Random.Range(0, SpawnPointsAvail.Count);
+        for (int i = 0; i < SpawnPointsAvail.Count; i++)
+        {
+            if (i == playerSpawn)
+                player.transform.position = SpawnPointsAvail[playerSpawn].position;
 
-        
+            //otherwise Spawn enemy at other spawn points;
+        }
     }
 
     // Update is called once per frame

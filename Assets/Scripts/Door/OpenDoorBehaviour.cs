@@ -10,13 +10,24 @@ public class OpenDoorBehaviour : MonoBehaviour
     bool playerEnable = false;
     [SerializeField]
     string Level = "PlayScene";
-
-
+    [SerializeField]
+    Reward reward;
+    [SerializeField]
+    RewardList list;
+    private void Awake()
+    {
+        reward = list.getReward(Random.Range(0, list.Count()));
+    }
     public void Use()
     {
         Debug.Log("Door Used");
         if (playerEnable)
+        {
+            GameObject.FindGameObjectWithTag("RewardManager").GetComponent<RewardManager>().CurrentRoomReward = reward;
+            GameObject.FindGameObjectWithTag("RewardManager").GetComponent<RewardManager>().Spawned = false;
+            GameObject.FindGameObjectWithTag("RewardManager").GetComponent<RewardManager>().Claimed = false;
             SceneManager.LoadScene(Level);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class RewardManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static RewardManager _instance;
+    [SerializeField]
+    public bool Claimed, Spawned;
+    [SerializeField]
+    public Reward CurrentRoomReward;
+    public static RewardManager Instance
     {
-        
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<RewardManager>();
+            }
+
+            return _instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Awake()
     {
-        
+        if (Instance != this)
+        { Destroy(gameObject); }
+        DontDestroyOnLoad(gameObject);
     }
 }

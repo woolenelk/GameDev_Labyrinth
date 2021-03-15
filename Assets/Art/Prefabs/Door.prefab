@@ -99,6 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerEnable: 0
   Level: 
+  reward: {fileID: 0}
+  list: {fileID: 11400000, guid: 5433e9339b356774da594e12319fb775, type: 2}
 --- !u!65 &4682591594806210630
 BoxCollider:
   m_ObjectHideFlags: 0
