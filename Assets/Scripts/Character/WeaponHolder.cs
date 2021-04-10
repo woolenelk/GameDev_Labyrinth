@@ -35,7 +35,7 @@ namespace Character
             PlayerController = GetComponent<PlayerController>();
             PlayerAnimator = GetComponent<Animator>();
         
-            MainCamera = Camera.main;
+            MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
 
         // Start is called before the first frame update
@@ -56,11 +56,11 @@ namespace Character
 
         public void OnLook(InputValue delta)
         {
+            if (MainCamera == null)
+                MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             Vector3 independentMousePosition =
                 MainCamera.ScreenToViewportPoint(PlayerController.CrosshairComponent.CurrentMousePosition);
 
-
-            Debug.Log(independentMousePosition);
             PlayerAnimator.SetFloat(AimVerticalHash, independentMousePosition.y);
             PlayerAnimator.SetFloat(AimHorizontalHash, independentMousePosition.x);
         }
@@ -126,5 +126,9 @@ namespace Character
             PlayerAnimator.SetIKPosition(AvatarIKGoal.LeftHand, GripLocation.position);
         }
         
+        public void AddBullets(int bullets)
+        {
+            EquippedWeapon.WeaponStats.BulletsAvailable += bullets;
+        }
     }
 }

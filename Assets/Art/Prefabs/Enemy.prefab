@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3110718038304310734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.728}
+  m_LocalPosition: {x: 0, y: 0, z: 0.649}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3110718038359052737}
@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 3110718038359052736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.158, z: 0.55}
-  m_LocalScale: {x: 0.32403, y: 0.2398, z: 0.71805}
+  m_LocalScale: {x: 0.1779994, y: 0.16143815, z: 0.71805}
   m_Children:
   - {fileID: 3110718038304310735}
   m_Father: {fileID: 3110718038707552271}
@@ -236,9 +236,10 @@ GameObject:
   - component: {fileID: 3110718038898912459}
   - component: {fileID: 3110718038898912458}
   - component: {fileID: 3110718038898912453}
+  - component: {fileID: 8804471595388835117}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,7 +273,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -292,10 +293,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9589c2a7bb5ed54aa3f89fb0a41764f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
+  maxHealth: 20
+  currentHealth: 0
+  AttackTimer: 0
+  MaxAttackTimer: 5
+  canShootPlayer: 0
+  agent: {fileID: 3110718038898912459}
   player: {fileID: 0}
   wanderRadius: 10
   wanderTimer: 4
+  bullet: {fileID: 7426783513688200392, guid: 8e60dd5d79bbc0740bf2c521cf51df37, type: 3}
+  bulletspawn: {fileID: 3110718038304310735}
 --- !u!65 &3110718038898912453
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -309,6 +317,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 2, z: 12}
   m_Center: {x: 0, y: 1, z: 5}
+--- !u!114 &8804471595388835117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3110718038898912452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e0ac0bfef284c488138cbae1c35442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &3110718039694986253
 GameObject:
   m_ObjectHideFlags: 0

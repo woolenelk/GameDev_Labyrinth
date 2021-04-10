@@ -323,10 +323,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6896870403403244399}
     m_Modifications:
-    - target: {fileID: 991444266227804699, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
-      propertyPath: Level
-      value: PlayScene
-      objectReference: {fileID: 0}
     - target: {fileID: 991444266227804701, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
       propertyPath: m_Name
       value: Door (1)
@@ -389,10 +385,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6896870403403244399}
     m_Modifications:
-    - target: {fileID: 991444266227804699, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
-      propertyPath: Level
-      value: PlayScene
-      objectReference: {fileID: 0}
     - target: {fileID: 991444266227804701, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
       propertyPath: m_Name
       value: Door (2)
@@ -400,14 +392,6 @@ PrefabInstance:
     - target: {fileID: 991444266227906109, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 991444266227906109, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.3333328
-      objectReference: {fileID: 0}
-    - target: {fileID: 991444266227906109, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.66666675
       objectReference: {fileID: 0}
     - target: {fileID: 991444266227906109, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,10 +447,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6896870403403244399}
     m_Modifications:
-    - target: {fileID: 991444266227804699, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
-      propertyPath: Level
-      value: PlayScene
-      objectReference: {fileID: 0}
     - target: {fileID: 991444266227804701, guid: 2cb8379922a1da94184027281f6c0a27, type: 3}
       propertyPath: m_Name
       value: Door

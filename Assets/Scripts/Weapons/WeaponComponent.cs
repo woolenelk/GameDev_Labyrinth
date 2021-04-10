@@ -61,6 +61,7 @@ namespace Weapons
 
         public virtual void StartFiring()
         {
+            MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             Firing = true;
             if (WeaponStats.Repeating)
             {
@@ -80,7 +81,6 @@ namespace Weapons
 
         protected virtual void FireWeapon()
         {
-            Debug.Log("Firing Weapon");
             WeaponStats.BulletsInClip--;
         }
 
@@ -97,7 +97,7 @@ namespace Weapons
 
         protected virtual void ReloadWeapon()
         {
-            int bulletsToReload = WeaponStats.ClipSize- WeaponStats.BulletsAvailable ;
+            int bulletsToReload = WeaponStats.ClipSize - WeaponStats.BulletsAvailable ;
             if (bulletsToReload < 0)
             {
                 WeaponStats.BulletsInClip = WeaponStats.ClipSize;

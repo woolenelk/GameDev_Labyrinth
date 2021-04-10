@@ -11,7 +11,7 @@ namespace Weapons
 
         protected override void FireWeapon()
         {
-            
+            //Debug.Log("Firing");   
             if (WeaponStats.BulletsInClip > 0 && !WeaponHolder.PlayerController.IsReloading && !WeaponHolder.PlayerController.IsRunning)
             {
                 base.FireWeapon();
@@ -22,9 +22,13 @@ namespace Weapons
                     WeaponStats.FireDistance, WeaponStats.WeaponHitLayer))
                     return;
 
+                Entity hitEntity = hit.transform.GetComponent<Entity>();
+
+                if (hitEntity != null)
+                    CombatManager.Attack(this.GetComponentInParent<Entity>(), hitEntity, this);
+
                 HitLocation = hit.point;
                 Vector3 hitDirection = hit.point - MainCamera.transform.position;
-
                 //Debug.DrawRay(MainCamera.transform.position, hitDirection * WeaponStats.FireDistance, Color.red);
                 Debug.DrawLine(MainCamera.transform.position, HitLocation, Color.red, WeaponStats.FireRate);
             }

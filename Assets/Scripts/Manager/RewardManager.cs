@@ -2,30 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RewardManager : MonoBehaviour
+namespace Character
 {
-    private static RewardManager _instance;
-    [SerializeField]
-    public bool Claimed, Spawned;
-    [SerializeField]
-    public Reward CurrentRoomReward;
-    public static RewardManager Instance
+    public class RewardManager : MonoBehaviour
     {
-        get
+        public int room;
+        private static RewardManager _instance;
+        [SerializeField]
+        public Reward CurrentRoomReward;
+        [SerializeField]
+        GameObject[] rewards;
+        public static RewardManager Instance
         {
-            if (_instance == null)
+            get
             {
-                _instance = GameObject.FindObjectOfType<RewardManager>();
+                if (_instance == null)
+                {
+                    _instance = GameObject.FindObjectOfType<RewardManager>();
+                }
+
+                return _instance;
             }
-
-            return _instance;
         }
-    }
 
-    void Awake()
-    {
-        if (Instance != this)
-        { Destroy(gameObject); }
-        DontDestroyOnLoad(gameObject);
+        void Awake()
+        {
+            if (Instance != this)
+            { Destroy(gameObject); }
+            DontDestroyOnLoad(gameObject);
+        }
+
+        public void SpawnReward(Vector3 position)
+        {
+            GameObject temp = Instantiate(rewards[(int)CurrentRoomReward.reward], position, Quaternion.identity);
+            temp.GetComponent<Item>().setAmount(CurrentRoomReward.amount);
+        }
     }
 }

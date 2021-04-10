@@ -24,8 +24,11 @@ namespace Character
 
         public void OnUse(InputValue button)
         {
+            if (MainCamera == null)
+                MainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             Ray screenRay = MainCamera.ScreenPointToRay(new Vector3(Crosshair.CurrentMousePosition.x,
                         Crosshair.CurrentMousePosition.y, 0));
+
 
             if (!Physics.Raycast(screenRay, out RaycastHit hit,
                 1000))

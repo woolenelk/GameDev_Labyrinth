@@ -9,6 +9,9 @@ TagManager:
   - Door
   - FloorManager
   - RewardManager
+  - Follow
+  - Hud
+  - Enemy
   layers:
   - Default
   - TransparentFX

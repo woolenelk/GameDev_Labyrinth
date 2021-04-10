@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum RewardType
+public enum RewardType: int
 {
     health, 
     ammo, 
@@ -12,8 +12,9 @@ enum RewardType
 [CreateAssetMenu(fileName = "Reward", menuName = "ScriptableObjects/RewardScriptableObject", order = 2)]
 public class Reward : ScriptableObject
 {
+    
     [SerializeField]
-    RewardType reward = RewardType.health;
+    public RewardType reward = RewardType.health;
     [SerializeField]
-    int amount = 1;
+    public int amount = 1;
 }
